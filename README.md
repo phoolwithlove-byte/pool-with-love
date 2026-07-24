@@ -9,6 +9,8 @@
 | `firebase-config.js` | The one file you edit to connect everything to your own free Firebase project. |
 | `firestore.rules` | Paste into Firebase Console so only you can change product data. |
 | `storage.rules` | Paste into Firebase Console so only you can upload/delete photos. |
+| `supabase-config.js` | The one file you edit to connect the chat assistant (bottom-right bubble) to your Supabase project. |
+| `supabase/functions/chatbot/` | The server-side code for the chat assistant — deployed to Supabase, keeps your Gemini API key private. |
 
 Until you complete the setup below, `index.html` still works perfectly on its own —
 it shows the same 10 products it does today. The admin panel simply won't be able
@@ -69,6 +71,45 @@ completed the setup above) instead of just showing a thank-you message. You
 can view collected emails anytime in the Firebase Console under Firestore
 Database → subscribers. The rules in `firestore.rules` let visitors add their
 own email but not read or download the list — only you (logged in) can.
+
+## Chat assistant
+
+There's a chat bubble in the bottom-right of the site that answers customer
+questions (prices, delivery, customisation, policies) using Groq and only the
+company info baked into `supabase/functions/chatbot/index.ts` (the same
+details from this site — products, story, process, policies, contact). It
+never invents products or prices that aren't listed there.
+
+**Important: your Groq API key must never be pasted into any file in this
+project or shared in chat/email.** It's kept entirely on Supabase's servers,
+set as a secret — the website itself never sees it.
+
+This project is currently deployed on Supabase as a function named
+`phool-with-love-chatbot` (project ref `yygbgthbxikboxwrhriy`). To update it
+after changing `supabase/functions/chatbot/index.ts`:
+
+1. Go to the [Supabase dashboard](https://supabase.com/dashboard/project/yygbgthbxikboxwrhriy/functions) →
+   **Edge Functions** → `phool-with-love-chatbot` → open its code editor.
+2. Replace the code with the updated contents of
+   `supabase/functions/chatbot/index.ts` and click **Deploy**.
+3. Make sure **"Enforce JWT Verification"** is switched **off** for this
+   function (it needs to answer anonymous site visitors, not logged-in users).
+4. Get an API key from [console.groq.com/keys](https://console.groq.com/keys),
+   then under **Settings → Edge Functions → Manage secrets**, set:
+   - `GROQ_API_KEY` — your key
+   - `GROQ_MODEL` *(optional)* — only needed if the default model stops
+     working; check [console.groq.com/docs/models](https://console.groq.com/docs/models)
+     for current model names.
+5. The chat bubble already points at
+   `https://yygbgthbxikboxwrhriy.supabase.co/functions/v1/phool-with-love-chatbot`
+   via `supabase-config.js` — no further changes needed once the above is done.
+
+If you ever move this to a brand new Supabase project instead, repeat the
+steps above there and update the URL in `supabase-config.js` to match.
+
+To update what the assistant knows (e.g. new products, updated prices), edit
+the `KNOWLEDGE_BASE` text in `supabase/functions/chatbot/index.ts` and re-run
+step 5 to redeploy.
 
 ## A note on security
 
