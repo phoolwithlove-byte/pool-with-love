@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phool with Love — Handmade Flowers, Made with Love</title>
+<meta name="description" content="Handcrafted pipe cleaner and plush flower bouquets, gift hampers and custom floral arrangements. Handmade in Bengaluru, shipped pan-India.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#D98CA6">
+
+<!-- Update PASTE_YOUR_DOMAIN_HERE to your real site URL once it's hosted -->
+<link rel="canonical" href="https://PASTE_YOUR_DOMAIN_HERE/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Phool with Love">
+<meta property="og:title" content="Phool with Love — Handmade Flowers, Made with Love">
+<meta property="og:description" content="Handcrafted pipe cleaner and plush flower bouquets, gift hampers and custom floral arrangements. Handmade in Bengaluru, shipped pan-India.">
+<meta property="og:url" content="https://PASTE_YOUR_DOMAIN_HERE/">
+<meta property="og:image" content="https://PASTE_YOUR_DOMAIN_HERE/images/lilies.jpg">
+<meta property="og:image:width" content="720">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Phool with Love — Handmade Flowers, Made with Love">
+<meta name="twitter:description" content="Handcrafted pipe cleaner and plush flower bouquets, gift hampers and custom floral arrangements. Handmade in Bengaluru, shipped pan-India.">
+<meta name="twitter:image" content="https://PASTE_YOUR_DOMAIN_HERE/images/lilies.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF4EA;
+    --white:#FFFFFF;
+    --blush:#F6DDE3;
+    --blush-deep:#EEC3CE;
+    --rose:#D98CA6;
+    --rose-deep:#92446B;
+    --sage:#9CAE8C;
+    --sage-deep:#3E4A34;
+    --sage-mid:#6E7F5E;
+    --ink:#2A2320;
+    --ink-soft:#786A5F;
+    --gold:#7C5E32;
+    --gold-soft:#EAD9B4;
+    --gold-line: rgba(124,94,50,.45);
+    --line: rgba(42,35,32,0.12);
+    --shadow: 0 24px 50px -24px rgba(42,35,32,0.32);
+    --shadow-soft: 0 14px 32px -20px rgba(42,35,32,0.2);
+    --radius: 20px;
+    --ease: cubic-bezier(.16,1,.3,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Quicksand', sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Playfair Display', serif;
+    color:var(--ink);
+    margin:0 0 .5em 0;
+    line-height:1.15;
+    font-weight:600;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  button{font-family:inherit; cursor:pointer;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Poppins', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:.72rem;
+    font-weight:600;
+    color:var(--gold);
+    margin:0 0 .9em 0;
+    display:flex; align-items:center; gap:.6em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .section{padding:112px 0;}
+  .section--tight{padding:80px 0;}
+  @media (max-width:720px){
+    .section{padding:64px 0;}
+    .section--tight{padding:48px 0;}
+  }
+
+  /* buttons */
+  .btn{
+    font-family:'Poppins', sans-serif;
+    font-size:.8rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    padding:1em 2em;
+    border-radius:999px;
+    border:1.5px solid transparent;
+    display:inline-flex;
+    align-items:center;
+    gap:.6em;
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .3s ease, border-color .3s ease;
+    white-space:nowrap;
+  }
+  .btn--primary{background:var(--rose-deep); color:var(--white); box-shadow:0 10px 24px -10px rgba(146,68,107,.55);}
+  .btn--primary:hover{transform:translateY(-2px); box-shadow:0 16px 32px -12px rgba(146,68,107,.6);}
+  .btn--ghost{background:transparent; border-color:var(--sage-deep); color:var(--sage-deep);}
+  .btn--ghost:hover{background:var(--sage-deep); color:var(--cream);}
+  .btn--light{background:var(--white); color:var(--rose-deep);}
+  .btn--light:hover{transform:translateY(-2px);}
+  .btn:focus-visible, a:focus-visible, input:focus-visible, .icon-btn:focus-visible{
+    outline:2.5px solid var(--sage-deep); outline-offset:3px;
+  }
+
+  /* -------- MOTION SYSTEM -------- */
+  .reveal{
+    opacity:0; transform:translateY(28px);
+    transition:opacity .7s var(--ease), transform .7s var(--ease);
+  }
+  .reveal.visible{opacity:1; transform:translateY(0);}
+
+  .reveal-stagger > *{
+    opacity:0; transform:translateY(24px);
+    transition:opacity .6s var(--ease), transform .6s var(--ease);
+  }
+  .reveal-stagger.visible > *{opacity:1; transform:translateY(0);}
+  .reveal-stagger.visible > *:nth-child(1){transition-delay:.03s;}
+  .reveal-stagger.visible > *:nth-child(2){transition-delay:.09s;}
+  .reveal-stagger.visible > *:nth-child(3){transition-delay:.15s;}
+  .reveal-stagger.visible > *:nth-child(4){transition-delay:.21s;}
+  .reveal-stagger.visible > *:nth-child(5){transition-delay:.27s;}
+  .reveal-stagger.visible > *:nth-child(6){transition-delay:.33s;}
+  .reveal-stagger.visible > *:nth-child(7){transition-delay:.39s;}
+  .reveal-stagger.visible > *:nth-child(8){transition-delay:.45s;}
+  .reveal-stagger.visible > *:nth-child(9){transition-delay:.51s;}
+  .reveal-stagger.visible > *:nth-child(10){transition-delay:.57s;}
+
+  /* hero entrance, staggered on load */
+  @keyframes heroIn{from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);}}
+  .hero-anim{opacity:0; animation:heroIn .75s var(--ease) forwards;}
+  .hero-anim-1{animation-delay:.05s;}
+  .hero-anim-2{animation-delay:.16s;}
+  .hero-anim-3{animation-delay:.3s;}
+  .hero-anim-4{animation-delay:.42s;}
+  .hero-anim-5{animation-delay:.54s;}
+
+  /* flowers bloom in on load, then sway forever (independent CSS properties so they don't fight) */
+  @keyframes bloomIn{from{opacity:0; scale:.55;} to{opacity:1; scale:1;}}
+  .bloom-in{animation:bloomIn .85s var(--ease) both;}
+  .bloom-in.bloom-delay-1{animation-delay:.18s;}
+  .bloom-in.bloom-delay-2{animation-delay:.34s;}
+
+  /* hover bloom on decorative flower marks */
+  .logo svg, .story-art > svg{transition:transform .35s cubic-bezier(.34,1.56,.64,1);}
+  .logo:hover svg{transform:scale(1.14) rotate(-6deg);}
+
+  /* badge feedback bump */
+  @keyframes badgeBump{0%{scale:1;} 45%{scale:1.4;} 100%{scale:1;}}
+  .badge.bump{animation:badgeBump .45s ease;}
+
+  @keyframes addPulse{0%{scale:1;} 50%{scale:1.06;} 100%{scale:1;}}
+  .add-cart-btn.pulse{animation:addPulse .35s ease;}
+
+  /* subtle paper-dot texture, used behind the hero */
+  .texture-dots{
+    position:absolute; inset:0; pointer-events:none; z-index:0;
+    background-image:radial-gradient(var(--line) 1px, transparent 1.4px);
+    background-size:24px 24px;
+    -webkit-mask-image:radial-gradient(ellipse 60% 55% at 32% 24%, black 0%, transparent 72%);
+    mask-image:radial-gradient(ellipse 60% 55% at 32% 24%, black 0%, transparent 72%);
+    opacity:.6;
+  }
+
+  /* -------- NAV -------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,244,234,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  header.scrolled{border-color:var(--line); box-shadow:0 6px 20px -14px rgba(64,53,47,.4);}
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+    gap:20px;
+  }
+  .logo{display:flex; align-items:center; gap:.55em; font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:600; color:var(--ink);}
+  .logo em{color:var(--rose-deep); font-style:italic; font-weight:600;}
+  .logo svg{color:var(--rose);}
+  .nav-links{display:flex; align-items:center; gap:34px; font-family:'Poppins',sans-serif; font-size:.88rem; font-weight:500;}
+  .nav-links a{position:relative; padding:.2em 0;}
+  .nav-links a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background:var(--gold);
+    transition:right .4s var(--ease);
+  }
+  .nav-links a:hover::after{right:0;}
+  .nav-actions{display:flex; align-items:center; gap:10px;}
+  .icon-btn{
+    position:relative;
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; background:var(--white);
+    color:var(--ink); transition:background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .icon-btn:hover{background:var(--blush); transform:translateY(-1px);}
+  .icon-btn.active{background:var(--rose-deep); color:var(--white); border-color:var(--rose-deep);}
+  .menu-toggle{display:none; background:none; border:none; padding:6px;}
+  .menu-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px; transition:transform .25s ease, opacity .25s ease;}
+
+  @media (max-width:640px){
+    .nav-order-btn{display:none;}
+  }
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed; inset:0 0 0 auto; top:0; height:100vh; width:min(78vw,320px);
+      background:var(--cream); flex-direction:column; align-items:flex-start;
+      padding:100px 32px 32px; gap:26px; font-size:1.05rem;
+      transform:translateX(100%); transition:transform .35s ease; box-shadow:-20px 0 40px -30px rgba(0,0,0,.4);
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-toggle{display:block;}
+  }
+
+  /* search overlay */
+  .search-panel{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+    background:var(--white); border-bottom:1px solid var(--line);
+  }
+  .search-panel.open{max-height:90px;}
+  .search-panel .wrap{padding-top:14px; padding-bottom:14px;}
+  .search-panel input{
+    width:100%; border:1.5px solid var(--line); background:var(--cream);
+    border-radius:999px; padding:.8em 1.3em; font-family:'Quicksand',sans-serif; font-size:1rem; color:var(--ink);
+  }
+  .search-panel input:focus{outline:none; border-color:var(--rose-deep);}
+
+  /* -------- HERO -------- */
+  .hero{position:relative; overflow:hidden; padding-top:64px; padding-bottom:40px;}
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;
+  }
+  .hero h1{font-size:clamp(2.5rem,4.6vw,3.75rem); font-style:italic; font-weight:600;}
+  .hero h1 em{color:var(--rose-deep); font-style:italic;}
+  .hero p.lede{
+    font-size:1.14rem; color:var(--ink-soft); max-width:46ch; margin:0 0 2em 0;
+  }
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-bottom:1.8em;}
+  .hero-meta{font-family:'Poppins',sans-serif; font-size:.82rem; color:var(--sage-deep); font-weight:500; display:flex; gap:8px; align-items:center;}
+  .hero-art{position:relative; height:440px;}
+  .hero-ring{
+    position:absolute; width:360px; height:360px; left:50%; top:50%;
+    transform:translate(-50%,-50%); border-radius:50%; border:1px solid var(--gold-line);
+    opacity:.7;
+  }
+  .hero-seal{
+    position:absolute; right:0; bottom:6%; filter:drop-shadow(0 10px 18px rgba(42,35,32,.22));
+    opacity:0; animation:sealPop .7s var(--ease) .75s forwards;
+  }
+  @keyframes sealPop{
+    from{opacity:0; transform:scale(.5) rotate(-14deg);}
+    to{opacity:1; transform:scale(1) rotate(-8deg);}
+  }
+  .bouquet{position:absolute; inset:0; margin:auto; width:100%; max-width:420px;}
+  .sway{animation:sway 6s ease-in-out infinite; transform-origin:50% 92%;}
+  .sway.sway-delay{animation-delay:-2.4s;}
+  .sway.sway-delay2{animation-delay:-4s;}
+  @keyframes sway{
+    0%,100%{rotate:-1.6deg;}
+    50%{rotate:1.8deg;}
+  }
+  .hero-blob{
+    position:absolute; width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--blush), transparent 70%);
+    top:-140px; right:-160px; z-index:0; opacity:.65;
+  }
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; text-align:center;}
+    .hero-ctas, .hero-meta{justify-content:center;}
+    .hero p.lede{margin-left:auto; margin-right:auto;}
+    .hero-art{height:320px; order:-1;}
+  }
+
+  /* stem divider */
+  .stem-divider{width:100%; height:44px; display:block; color:var(--sage);}
+  .stem-divider.rose{color:var(--blush-deep);}
+  .stem-divider path{transition:stroke-dashoffset 1.5s var(--ease);}
+
+  /* -------- MARQUEE -------- */
+  .marquee-strip{
+    width:100%; overflow:hidden; background:var(--white);
+    padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .marquee-track{
+    display:flex; align-items:center; gap:22px; width:max-content;
+    animation:marqueeScroll 42s linear infinite;
+  }
+  .marquee-track:hover{animation-play-state:paused;}
+  .marquee-item{
+    flex-shrink:0; width:96px; height:120px; border-radius:16px; overflow:hidden;
+    box-shadow:var(--shadow-soft); border:2px solid var(--white);
+  }
+  .marquee-item img{width:100%; height:100%; object-fit:cover;}
+  @keyframes marqueeScroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* -------- KEN BURNS STORY PHOTO -------- */
+  .story-photo-frame{
+    width:260px; height:260px; border-radius:50%; overflow:hidden;
+    box-shadow:var(--shadow); position:relative; z-index:1; background:var(--blush);
+  }
+  .story-photo-frame img{
+    width:100%; height:100%; object-fit:cover;
+    animation:kenBurns 16s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns{from{transform:scale(1) translate(0,0);} to{transform:scale(1.15) translate(-3%,-2%);}}
+  .story-art .ring{animation:slowSpin 50s linear infinite;}
+  @keyframes slowSpin{to{transform:rotate(360deg);}}
+
+  /* -------- LIGHTBOX -------- */
+  .lightbox-overlay{
+    position:fixed; inset:0; z-index:80; background:rgba(64,53,47,.6);
+    display:flex; align-items:center; justify-content:center; padding:24px;
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .lightbox-overlay.open{opacity:1; pointer-events:auto;}
+  .lightbox-box{
+    background:var(--cream); border-radius:var(--radius); overflow:hidden; max-width:420px; width:100%;
+    transform:scale(.92); transition:transform .3s var(--ease); position:relative;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+  }
+  .lightbox-overlay.open .lightbox-box{transform:scale(1);}
+  .lightbox-box img{width:100%; aspect-ratio:4/5; object-fit:cover;}
+  .lightbox-info{padding:18px 20px 22px;}
+  .lightbox-info h3{font-size:1.2rem; margin:0 0 .2em;}
+  .lightbox-info p{margin:0; color:var(--rose-deep); font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:600;}
+  .lightbox-close{position:absolute; top:12px; right:12px; background:rgba(251,244,234,.92); z-index:2;}
+
+  /* -------- STORY -------- */
+  .story .wrap{display:grid; grid-template-columns:.95fr 1.05fr; gap:64px; align-items:center;}
+  .story-art{position:relative; height:360px; display:flex; align-items:center; justify-content:center;}
+  .story-art .ring{
+    position:absolute; width:300px; height:300px; border-radius:50%;
+    border:2px dashed var(--sage); opacity:.55;
+  }
+  .story h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
+  .story p{color:var(--ink-soft); max-width:56ch;}
+  .feature-list{list-style:none; margin:1.6em 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 24px;}
+  .feature-list li{display:flex; align-items:center; gap:.7em; font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:500; color:var(--ink);}
+  .feature-list svg{color:var(--rose); flex-shrink:0;}
+  @media (max-width:800px){
+    .story .wrap{grid-template-columns:1fr;}
+    .feature-list{grid-template-columns:1fr;}
+    .story-art{order:-1; height:260px;}
+  }
+
+  /* -------- OCCASIONS -------- */
+  .occasions{background:var(--white);}
+  .occasions-head{max-width:640px; margin:0 auto 2.4em; text-align:center;}
+  .occasions-head h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
+  .occasions-head p{color:var(--ink-soft);}
+  .search-wrap{max-width:420px; margin:0 auto 3em; position:relative;}
+  .search-wrap input{
+    width:100%; padding:.85em 1.4em .85em 2.7em; border-radius:999px; border:1.5px solid var(--line);
+    background:var(--cream); font-family:'Quicksand',sans-serif; font-size:1rem; color:var(--ink);
+  }
+  .search-wrap input:focus{outline:none; border-color:var(--rose-deep);}
+  .search-wrap svg{position:absolute; left:1em; top:50%; transform:translateY(-50%); color:var(--ink-soft);}
+
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:28px;
+  }
+  @media (max-width:980px){.cat-grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:640px){.cat-grid{grid-template-columns:repeat(2,1fr); gap:16px;}}
+
+  /* -------- PRODUCT CARDS -------- */
+  .prod-card{
+    background:var(--white); border-radius:var(--radius); overflow:hidden;
+    border:1px solid var(--line); transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .4s ease;
+    display:flex; flex-direction:column;
+  }
+  .prod-card:hover{transform:translateY(-6px); box-shadow:var(--shadow); border-color:var(--gold-line);}
+  .prod-card.hidden{display:none;}
+  .prod-media{position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--blush);}
+  .prod-media img{width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); cursor:zoom-in;}
+  .prod-card:hover .prod-media img{transform:scale(1.06);}
+  .prod-badge{
+    position:absolute; left:10px; bottom:10px; background:rgba(255,255,255,.94);
+    color:var(--gold); font-family:'Playfair Display',serif; font-style:italic; font-size:.72rem; font-weight:600;
+    padding:.35em .8em; border-radius:999px; letter-spacing:.02em; border:1px solid var(--gold-line);
+  }
+  .prod-heart{
+    position:absolute; top:10px; right:10px; width:34px; height:34px; border-radius:50%;
+    background:rgba(255,255,255,.94); border:none; display:flex; align-items:center; justify-content:center;
+    color:var(--ink); transition:transform .3s var(--ease), color .2s ease;
+  }
+  .prod-heart:hover{transform:scale(1.08);}
+  .prod-heart.active{color:var(--rose-deep);}
+  .prod-body{padding:18px 18px 20px; display:flex; flex-direction:column; gap:4px; flex:1;}
+  .prod-kind{font-family:'Poppins',sans-serif; font-size:.66rem; text-transform:uppercase; letter-spacing:.14em; color:var(--gold); font-weight:600;}
+  .prod-body h3{font-family:'Poppins',sans-serif; font-size:.98rem; font-weight:600; margin:.3em 0 0; color:var(--ink);}
+  .prod-price{
+    font-family:'Playfair Display',serif; font-size:1.28rem; font-weight:600; color:var(--ink);
+    margin:8px 0 12px; padding-top:10px; border-top:1px solid var(--line);
+  }
+  .prod-actions{display:flex; align-items:center; gap:10px; margin-top:auto;}
+  .qty-stepper{
+    display:flex; align-items:center; border:1.5px solid var(--line); border-radius:999px; overflow:hidden; background:var(--white);
+  }
+  .qty-btn{
+    width:30px; height:34px; border:none; background:none; font-size:1.1rem; color:var(--ink); font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qty-btn:hover{background:var(--blush);}
+  .qty-value{width:22px; text-align:center; font-family:'Poppins',sans-serif; font-weight:600; font-size:.9rem;}
+  .add-cart-btn{flex:1; padding:.7em 1em; font-size:.7rem; justify-content:center;}
+  .quick-order-link{
+    display:block; margin-top:10px; font-family:'Poppins',sans-serif; font-size:.76rem; font-weight:500;
+    color:var(--ink-soft); text-align:center;
+  }
+  .quick-order-link:hover{color:var(--gold);}
+  .no-results{text-align:center; color:var(--ink-soft); display:none; padding:20px 0;}
+  .no-results.show{display:block;}
+
+  /* -------- NAV BADGES -------- */
+  .badge{
+    position:absolute; top:-3px; right:-3px; min-width:17px; height:17px; padding:0 4px; border-radius:999px;
+    background:var(--rose-deep); color:#fff; font-size:.62rem; font-weight:700; font-family:'Poppins',sans-serif;
+    display:flex; align-items:center; justify-content:center; line-height:1; border:1.5px solid var(--cream);
+  }
+  .badge.zero{display:none;}
+
+  /* -------- CART DRAWER -------- */
+  .cart-overlay{
+    position:fixed; inset:0; background:rgba(64,53,47,.45); z-index:70;
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .cart-overlay.open{opacity:1; pointer-events:auto;}
+  .cart-drawer{
+    position:fixed; top:0; right:0; height:100vh; width:min(400px,92vw); background:var(--white); z-index:71;
+    display:flex; flex-direction:column; box-shadow:-16px 0 40px -20px rgba(0,0,0,.4);
+    transform:translateX(100%); transition:transform .35s ease;
+  }
+  .cart-drawer.open{transform:translateX(0);}
+  .cart-head{display:flex; align-items:center; justify-content:space-between; padding:22px 22px 16px; border-bottom:1px solid var(--line);}
+  .cart-head h3{margin:0; font-size:1.3rem;}
+  .cart-items{flex:1; overflow-y:auto; padding:10px 22px;}
+  .cart-row{display:flex; gap:12px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .cart-row img{width:56px; height:56px; border-radius:12px; object-fit:cover; flex-shrink:0;}
+  .cart-row-body{flex:1; display:flex; flex-direction:column; gap:6px;}
+  .cart-row-top{display:flex; justify-content:space-between; gap:8px; font-family:'Poppins',sans-serif; font-size:.86rem; font-weight:600;}
+  .cart-row-remove{background:none; border:none; color:var(--ink-soft); font-size:.76rem; text-decoration:underline; padding:0; align-self:flex-start; font-family:'Poppins',sans-serif;}
+  .cart-row-remove:hover{color:var(--rose-deep);}
+  .cart-row .qty-stepper{transform:scale(.9); transform-origin:left center;}
+  .cart-empty{padding:40px 22px; text-align:center; color:var(--ink-soft); font-size:.94rem;}
+  .cart-footer{padding:18px 22px 24px; border-top:1px solid var(--line);}
+  .cart-total{display:flex; justify-content:space-between; font-family:'Poppins',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:14px;}
+  .cart-footer .btn{width:100%; justify-content:center;}
+  .cart-footer .btn--ghost{margin-top:10px;}
+
+  /* -------- PROCESS -------- */
+  .process{background:var(--blush);}
+  .process-head{max-width:600px; margin:0 auto 3em; text-align:center;}
+  .process-head h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.steps{grid-template-columns:1fr;}}
+  .step{background:var(--white); border-radius:var(--radius); padding:28px 22px; position:relative;}
+  .step .num{font-family:'Playfair Display',serif; font-style:italic; font-size:2.2rem; color:var(--rose-deep); opacity:.5; line-height:1;}
+  .step h3{font-family:'Poppins',sans-serif; font-size:1rem; font-weight:600; margin:.5em 0 .4em;}
+  .step p{margin:0; font-size:.92rem; color:var(--ink-soft);}
+
+  /* -------- CUSTOM CTA -------- */
+  .custom-cta{background:var(--sage-deep); color:var(--cream); text-align:center;}
+  .custom-cta h2{color:var(--cream); font-size:clamp(1.9rem,3.4vw,2.6rem);}
+  .custom-cta p{max-width:56ch; margin:0 auto 1.8em; color:#DCE3D5; opacity:.9;}
+  .custom-cta .btn-row{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+  .custom-cta .btn--ghost{border-color:var(--cream); color:var(--cream);}
+  .custom-cta .btn--ghost:hover{background:var(--cream); color:var(--sage-deep);}
+
+  /* -------- NEWSLETTER -------- */
+  .newsletter{text-align:center;}
+  .newsletter h2{font-size:clamp(1.8rem,3vw,2.3rem);}
+  .newsletter p{color:var(--ink-soft); max-width:48ch; margin:0 auto 1.8em;}
+  .nl-form{display:flex; justify-content:center; gap:12px; max-width:460px; margin:0 auto; flex-wrap:wrap;}
+  .nl-form input{
+    flex:1; min-width:220px; padding:.9em 1.4em; border-radius:999px; border:1.5px solid var(--line);
+    background:var(--white); font-family:'Quicksand',sans-serif; font-size:1rem;
+  }
+  .nl-form input:focus{outline:none; border-color:var(--rose-deep);}
+  .nl-msg{margin-top:1em; font-family:'Poppins',sans-serif; font-size:.88rem; color:var(--sage-deep); font-weight:600; min-height:1.4em;}
+
+  /* -------- FOOTER -------- */
+  footer{background:var(--sage-deep); color:#E7EBE2; padding-top:72px; border-top:1px solid var(--gold-line);}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1.2fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.15);}
+  @media (max-width:800px){.foot-grid{grid-template-columns:1fr; gap:36px;}}
+  footer h4{font-family:'Poppins',sans-serif; font-size:.82rem; text-transform:uppercase; letter-spacing:.14em; color:#B9C4AE; margin:0 0 1.2em;}
+  .foot-logo{font-family:'Playfair Display',serif; font-size:1.5rem; font-style:italic; color:var(--cream); margin-bottom:.5em;}
+  footer p{color:#CBD4C3; font-size:.94rem;}
+  .foot-links{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; font-size:.94rem;}
+  .foot-links a:hover{color:var(--gold-soft);}
+  .foot-contact{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px; font-size:.94rem;}
+  .foot-contact li{display:flex; gap:10px; align-items:flex-start;}
+  .foot-contact svg{flex-shrink:0; margin-top:3px; color:var(--rose);}
+  .foot-socials{display:flex; gap:12px; margin-top:1.4em;}
+  .foot-socials a{
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.25);
+    display:flex; align-items:center; justify-content:center; transition:background .2s ease;
+  }
+  .foot-socials a:hover{background:rgba(255,255,255,.15);}
+  .policy-strip{display:flex; flex-wrap:wrap; gap:10px 28px; padding:26px 0; font-size:.82rem; color:#AEB9A3;}
+  .bottom-bar{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:20px 0 28px; font-size:.82rem; color:#9BA792; border-top:1px solid rgba(255,255,255,.1);}
+
+  /* -------- WHATSAPP FLOAT -------- */
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:60;
+    width:58px; height:58px; border-radius:50%; background:#3E4A34;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 12px 26px -8px rgba(0,0,0,.45);
+    color:#fff; transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG SPRITE (icons, no visible render) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="chenille-fuzz" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- pipe-cleaner flower: 6 fuzzy petal loops + bead center -->
+    <symbol id="pc-flower" viewBox="0 0 200 200">
+      <g fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round">
+        <path d="M100,100 C82,58 118,42 140,68 C158,90 132,118 100,100 Z" transform="rotate(0 100 100)"/>
+        <path d="M100,100 C82,58 118,42 140,68 C158,90 132,118 100,100 Z" transform="rotate(60 100 100)"/>
+        <path d="M100,100 C82,58 118,42 140,68 C158,90 132,118 100,100 Z" transform="rotate(120 100 100)"/>
+        <path d="M100,100 C82,58 118,42 140,68 C158,90 132,118 100,100 Z" transform="rotate(180 100 100)"/>
+        <path d="M100,100 C82,58 118,42 140,68 C158,90 132,118 100,100 Z" transform="rotate(240 100 100)"/>
+        <path d="M100,100 C82,58 118,42 140,68 C158,90 132,118 100,100 Z" transform="rotate(300 100 100)"/>
+      </g>
+      <circle cx="100" cy="100" r="15" fill="#FBF4EA" stroke="currentColor" stroke-width="4"/>
+    </symbol>
+
+    <!-- simple leaf -->
+    <symbol id="pc-leaf" viewBox="0 0 60 100">
+      <path d="M30,95 C10,70 8,30 30,5 C52,30 50,70 30,95 Z" fill="currentColor"/>
+      <path d="M30,90 L30,20" stroke="#3E4A34" stroke-width="2" opacity=".4"/>
+    </symbol>
+
+    <!-- ribbon bow -->
+    <symbol id="pc-bow" viewBox="0 0 160 90">
+      <path d="M80,45 C60,10 10,10 6,45 C10,80 60,80 80,45 Z" fill="#D98CA6"/>
+      <path d="M80,45 C100,10 150,10 154,45 C150,80 100,80 80,45 Z" fill="#92446B"/>
+      <circle cx="80" cy="45" r="11" fill="#F5EFE6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#top" class="logo">
+      <svg class="flower-icon" width="30" height="30"><use href="#pc-flower"/></svg>
+      Phool <em>with</em> Love
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#shop">Shop</a>
+      <a href="#story">Our Story</a>
+      <a href="#process">How it Works</a>
+      <a href="#custom">Custom Orders</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Search products" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" id="wishlistToggle" aria-label="Show wishlisted items only" aria-pressed="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.8-10-9.3C.4 8.3 2 4.5 6 4c2.3-.3 4.2 1 6 3 1.8-2 3.7-3.3 6-3 4 .5 5.6 4.3 4 7.7C19.5 16.2 12 21 12 21Z"/></svg>
+        <span class="badge zero" id="wishlistBadge">0</span>
+      </button>
+      <button class="icon-btn" id="cartToggle" aria-label="Open cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9.5" cy="19.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="17.5" cy="19.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        <span class="badge zero" id="cartBadge">0</span>
+      </button>
+      <a href="https://wa.me/919606525054?text=Hi!%20I%27d%20love%20to%20know%20more%20about%20Phool%20with%20Love%20bouquets." class="btn btn--primary nav-order-btn" id="navOrderBtn">Order Now</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="search-panel" id="searchPanel">
+    <div class="wrap">
+      <input type="text" id="headerSearch" placeholder="Search products — e.g. lily, sunflower, keychain..." aria-label="Search products">
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-blob" id="heroBlob" aria-hidden="true"></div>
+  <div class="texture-dots" id="heroTexture" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow hero-anim hero-anim-1">Handcrafted in Bengaluru · Est. 2026</p>
+      <h1 class="hero-anim hero-anim-2">Flowers that<br>never <em>say goodbye.</em></h1>
+      <p class="lede hero-anim hero-anim-3">Pipe-cleaner and plush bouquets, bent and shaped by hand — a keepsake bloom for birthdays, weddings, anniversaries, and every ordinary day worth celebrating.</p>
+      <div class="hero-ctas hero-anim hero-anim-4">
+        <a href="#shop" class="btn btn--primary">Explore Bouquets</a>
+        <a href="https://wa.me/919606525054?text=Hi!%20I%27d%20love%20to%20know%20more%20about%20Phool%20with%20Love%20bouquets." class="btn btn--ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10 9 9.5 7.7 9.3 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          Chat with us
+        </a>
+      </div>
+      <p class="hero-meta hero-anim hero-anim-5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        HSR Layout, Bengaluru &nbsp;·&nbsp; Ships pan-India &nbsp;·&nbsp; Open all week, 10am–8pm
+      </p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-ring" aria-hidden="true"></div>
+      <svg class="bouquet" viewBox="0 0 420 440">
+        <g stroke="var(--sage-deep)" stroke-width="4" fill="none">
+          <path d="M175,420 C170,340 160,300 150,260"/>
+          <path d="M210,425 C215,350 220,300 218,250"/>
+          <path d="M245,420 C250,340 255,300 260,255"/>
+        </g>
+        <use href="#pc-leaf" x="140" y="300" width="34" height="56" style="color:var(--sage)"/>
+        <use href="#pc-leaf" x="235" y="290" width="30" height="50" style="color:var(--sage)" transform="scale(-1,1) translate(-530,0)"/>
+        <use href="#pc-bow" x="145" y="380" width="130" height="70"/>
+
+        <svg x="70" y="150" width="140" height="140" class="sway bloom-in" style="color:var(--rose)"><use href="#pc-flower"/></svg>
+        <svg x="190" y="90" width="160" height="160" class="sway sway-delay bloom-in bloom-delay-1" style="color:var(--blush-deep)"><use href="#pc-flower"/></svg>
+        <svg x="150" y="220" width="120" height="120" class="sway sway-delay2 bloom-in bloom-delay-2" style="color:var(--sage)"><use href="#pc-flower"/></svg>
+      </svg>
+      <svg class="hero-seal" viewBox="0 0 120 120" width="104" height="104">
+        <circle cx="60" cy="60" r="54" fill="var(--cream)" stroke="var(--gold)" stroke-width="1.4"/>
+        <circle cx="60" cy="60" r="46" fill="none" stroke="var(--gold)" stroke-width="1"/>
+        <text x="60" y="53" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" letter-spacing="2.5" fill="var(--gold)">100%</text>
+        <text x="60" y="72" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="14" fill="var(--ink)">Handmade</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack"></div>
+</div>
+
+<svg class="stem-divider" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,30 C100,0 200,60 300,30 C400,0 500,60 600,30 C700,0 800,60 900,30 C1000,0 1100,60 1200,30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+</svg>
+
+<!-- ============ STORY ============ -->
+<section class="section story" id="story">
+  <div class="wrap">
+    <div class="story-art reveal">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="story-photo-frame" id="storyPhotoFrame"></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2>Why we bend wire instead of picking petals</h2>
+      <p>Phool with Love began with a simple question: what if a bouquet could last as long as the feeling behind it? Fresh flowers are beautiful for a week — we wanted to make something that stays beautiful for years.</p>
+      <p>Every bouquet is hand-shaped from premium pipe cleaners and plush fabric, stem by stem, in our small HSR Layout studio. No two are ever quite identical — and that's exactly the point.</p>
+      <ul class="feature-list reveal-stagger">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Handmade with care</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Premium quality materials</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Long-lasting keepsake</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Fully customizable</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Affordable pricing</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Ships pan-India</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section class="section occasions" id="shop">
+  <div class="wrap">
+    <div class="occasions-head reveal">
+      <p class="eyebrow" style="justify-content:center">Shop the Collection</p>
+      <h2>Ten little bouquets, all handmade</h2>
+      <p>Real pieces, real prices. Every colour can be customised on request — add your favourites to the cart and check out in one tap on WhatsApp.</p>
+    </div>
+
+    <div class="search-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="catSearch" placeholder="Search products — lily, sunflower, keychain..." aria-label="Search products">
+    </div>
+
+    <div class="cat-grid reveal-stagger" id="catGrid">
+      <!-- product cards injected by script below -->
+    </div>
+    <p class="no-results" id="noResults">Nothing matches just yet — try "bouquet", "pot" or "keychain", or clear the wishlist filter.</p>
+  </div>
+</section>
+
+<svg class="stem-divider rose" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,30 C100,60 200,0 300,30 C400,60 500,0 600,30 C700,60 800,0 900,30 C1000,60 1100,0 1200,30" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+</svg>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="process-head reveal">
+      <p class="eyebrow" style="justify-content:center">How it Works</p>
+      <h2>From our hands to your doorstep</h2>
+    </div>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Pick or customize</h3>
+        <p>Choose a ready category, or tell us your colours, occasion and budget.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>We craft it by hand</h3>
+        <p>Every stem is bent and shaped to order — usually within 2–5 business days.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Packed with care</h3>
+        <p>Wrapped to travel safely, with no water or refrigeration needed.</p>
+      </div>
+      <div class="step">
+        <span class="num">04</span>
+        <h3>Delivered with love</h3>
+        <p>Shipped pan-India, straight to your door — timelines vary by location.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOM ORDER CTA ============ -->
+<section class="section section--tight custom-cta" id="custom">
+  <div class="wrap reveal-stagger">
+    <h2>Have something special in mind?</h2>
+    <p>From graduation bouquets to made-to-order wedding arrangements, we'll bring your idea to life. Custom orders may require full or partial advance payment.</p>
+    <div class="btn-row">
+      <a href="https://wa.me/919606525054?text=Hi!%20I%27d%20like%20to%20start%20a%20custom%20bouquet%20order." class="btn btn--light">Start a Custom Order</a>
+      <a href="mailto:shabrinakmal17@gmail.com" class="btn btn--ghost">Email Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="section section--tight newsletter">
+  <div class="wrap reveal-stagger">
+    <p class="eyebrow" style="justify-content:center">Stay in Bloom</p>
+    <h2>Get first look at new bouquets</h2>
+    <p>Optional, occasional emails — new designs, festive collections, and the odd surprise offer.</p>
+    <form class="nl-form" id="nlForm">
+      <input type="email" required placeholder="you@example.com" aria-label="Email address" id="nlEmail">
+      <button type="submit" class="btn btn--primary">Subscribe</button>
+    </form>
+    <p class="nl-msg" id="nlMsg"></p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-logo">Phool <em>with</em> Love</p>
+        <p>Handcrafted pipe cleaner and plush flower bouquets, gift hampers and custom arrangements — made with love in Bengaluru, shipped across India.</p>
+        <div class="foot-socials">
+          <a href="https://wa.me/919606525054" aria-label="WhatsApp">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10 9 9.5 7.7 9.3 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="foot-links">
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#process">How it Works</a></li>
+          <li><a href="#custom">Custom Orders</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <ul class="foot-contact">
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            HSR 27th Main, Bengaluru
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.6 2Z"/></svg>
+            <a href="tel:+919606525054">+91 96065 25054</a>
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <a href="mailto:shabrinakmal17@gmail.com">shabrinakmal17@gmail.com</a>
+          </li>
+          <li>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            Mon–Sun, 10:00 AM – 8:00 PM
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="policy-strip">
+      <span>Ships across India · 2–5 day processing</span>
+      <span>Handmade items are non-returnable unless damaged (report within 24 hrs)</span>
+      <span>Advance payment may apply to custom orders</span>
+      <span>Colours may vary slightly by screen</span>
+    </div>
+
+    <div class="bottom-bar">
+      <span>© 2026 Phool with Love. Handmade in Bengaluru.</span>
+      <span>Every bouquet, made with love</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <div class="lightbox-box" id="lightboxBox">
+    <button class="icon-btn lightbox-close" id="lightboxClose" aria-label="Close image">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-info">
+      <h3 id="lightboxName"></h3>
+      <p id="lightboxPrice"></p>
+    </div>
+  </div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="icon-btn" id="cartClose" aria-label="Close cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <p class="cart-empty" id="cartEmpty">Your cart is empty — add a few favourites from the shop!</p>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <a href="#" id="cartCheckout" class="btn btn--primary">Order via WhatsApp</a>
+    <button class="btn btn--ghost" id="cartClear">Clear Cart</button>
+  </div>
+</aside>
+
+<a href="https://wa.me/919606525054?text=Hi!%20I%27d%20love%20to%20know%20more%20about%20Phool%20with%20Love%20bouquets." class="wa-float" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5C10 9 9.5 7.7 9.3 7.2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+</a>
+
+<script>
+  const PHONE = '919606525054';
+  let products = [
+    {slug:"lilies", name:"Lilies Bouquet", price:160, customizable:true, kind:"Bouquet", img:"images/lilies.jpg"},
+    {slug:"sunflowers", name:"Sunflowers Bouquet", price:190, customizable:false, kind:"Bouquet", img:"images/sunflowers.jpg"},
+    {slug:"mini-tulips", name:"Mini Tulips Bouquet", price:100, customizable:true, kind:"Bouquet", img:"images/mini-tulips.jpg"},
+    {slug:"gerbera-mini-pot", name:"Gerbera Mini Pot", price:250, customizable:true, kind:"Mini Pot", img:"images/gerbera-mini-pot.jpg"},
+    {slug:"sunflower-mini-pot", name:"Sunflower Mini Pot", price:250, customizable:true, kind:"Mini Pot", img:"images/sunflower-mini-pot.jpg"},
+    {slug:"lily-mini-pot", name:"Lily Mini Pot", price:330, customizable:true, kind:"Mini Pot", img:"images/lily-mini-pot.jpg"},
+    {slug:"flower-sleeve", name:"Flower Sleeve", price:150, customizable:true, kind:"Gift", img:"images/flower-sleeve.jpg"},
+    {slug:"flower-card", name:"Flower Card", price:150, customizable:true, kind:"Gift", img:"images/flower-card.jpg"},
+    {slug:"lily-keychain", name:"Lily Keychain", price:79, customizable:true, kind:"Keychain", img:"images/lily-keychain.jpg"},
+    {slug:"flower-keychain", name:"Flower Keychain", price:100, customizable:true, kind:"Keychain", img:"images/flower-keychain.jpg"},
+  ];
+
+  // ---- state ----
+  const cart = new Map();      // slug -> qty
+  const wishlist = new Set();  // slug
+  let wishlistFilterActive = false;
+
+  const grid = document.getElementById('catGrid');
+  const noResults = document.getElementById('noResults');
+
+  function money(n){ return '\u20B9' + n.toLocaleString('en-IN'); }
+
+  function waLink(text){
+    return 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text);
+  }
+
+  // ---- render product grid ----
+  function renderGrid(){
+    grid.innerHTML = '';
+    products.forEach(p=>{
+      const card = document.createElement('div');
+      card.className = 'prod-card';
+      card.dataset.slug = p.slug;
+      card.dataset.name = p.name.toLowerCase();
+      card.dataset.kind = p.kind.toLowerCase();
+      card.innerHTML = `
+        <div class="prod-media">
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+          <button class="prod-heart" data-slug="${p.slug}" aria-label="Add ${p.name} to wishlist" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.8-10-9.3C.4 8.3 2 4.5 6 4c2.3-.3 4.2 1 6 3 1.8-2 3.7-3.3 6-3 4 .5 5.6 4.3 4 7.7C19.5 16.2 12 21 12 21Z"/></svg>
+          </button>
+          ${p.customizable ? '<span class="prod-badge">Colours customisable</span>' : ''}
+        </div>
+        <div class="prod-body">
+          <span class="prod-kind">${p.kind}</span>
+          <h3>${p.name}</h3>
+          <p class="prod-price">${money(p.price)}</p>
+          <div class="prod-actions">
+            <div class="qty-stepper" data-slug="${p.slug}">
+              <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">\u2013</button>
+              <span class="qty-value">1</span>
+              <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="button" class="btn btn--primary add-cart-btn" data-slug="${p.slug}">Add to Cart</button>
+          </div>
+          <a href="#" class="quick-order-link" data-slug="${p.slug}">Quick order on WhatsApp \u2192</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+  renderGrid();
+
+  // ---- marquee strip: real product photos, looped twice for seamless scroll ----
+  const marqueeTrack = document.getElementById('marqueeTrack');
+  const storyPhotoFrame = document.getElementById('storyPhotoFrame');
+
+  function renderMarqueeAndStory(){
+    marqueeTrack.innerHTML = '';
+    const marqueeItems = [...products, ...products];
+    marqueeItems.forEach(p=>{
+      const item = document.createElement('div');
+      item.className = 'marquee-item';
+      item.innerHTML = `<img src="${p.img}" alt="${p.name}" loading="lazy">`;
+      marqueeTrack.appendChild(item);
+    });
+    const storyProduct = products.find(p => p.slug === 'lilies') || products[0];
+    if(storyProduct){
+      storyPhotoFrame.innerHTML = `<img src="${storyProduct.img}" alt="${storyProduct.name}">`;
+    }
+  }
+  renderMarqueeAndStory();
+
+  // ---- hook for live product data (used by the optional Firestore loader below) ----
+  window.__applyLiveProducts = function(liveList){
+    if(!Array.isArray(liveList) || liveList.length === 0) return;
+    products = liveList;
+    renderGrid();
+    renderMarqueeAndStory();
+    applyFilters(document.getElementById('catSearch').value);
+  };
+
+  // ---- search + wishlist filter ----
+  function applyFilters(term){
+    term = (term || '').trim().toLowerCase();
+    let visible = 0;
+    document.querySelectorAll('.prod-card').forEach(card=>{
+      const slug = card.dataset.slug;
+      const matchesTerm = !term || card.dataset.name.includes(term) || card.dataset.kind.includes(term);
+      const matchesWishlist = !wishlistFilterActive || wishlist.has(slug);
+      const show = matchesTerm && matchesWishlist;
+      card.classList.toggle('hidden', !show);
+      if(show) visible++;
+    });
+    noResults.classList.toggle('show', visible===0);
+  }
+  document.getElementById('catSearch').addEventListener('input', e=>applyFilters(e.target.value));
+  document.getElementById('headerSearch').addEventListener('input', e=>{
+    document.getElementById('catSearch').value = e.target.value;
+    applyFilters(e.target.value);
+    document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+  });
+
+  // ---- header search toggle ----
+  const searchToggle = document.getElementById('searchToggle');
+  const searchPanel = document.getElementById('searchPanel');
+  searchToggle.addEventListener('click', ()=>{
+    const open = searchPanel.classList.toggle('open');
+    searchToggle.setAttribute('aria-expanded', open);
+    searchToggle.classList.toggle('active', open);
+    if(open) document.getElementById('headerSearch').focus();
+  });
+
+  // ---- wishlist (nav = filter toggle, per-card heart = add/remove) ----
+  const wishlistToggle = document.getElementById('wishlistToggle');
+  const wishlistBadge = document.getElementById('wishlistBadge');
+
+  function updateWishlistBadge(){
+    wishlistBadge.textContent = wishlist.size;
+    wishlistBadge.classList.toggle('zero', wishlist.size === 0);
+    wishlistBadge.classList.remove('bump');
+    void wishlistBadge.offsetWidth;
+    wishlistBadge.classList.add('bump');
+  }
+
+  wishlistToggle.addEventListener('click', function(){
+    wishlistFilterActive = !wishlistFilterActive;
+    this.classList.toggle('active', wishlistFilterActive);
+    this.setAttribute('aria-pressed', wishlistFilterActive);
+    if(wishlistFilterActive){
+      document.getElementById('shop').scrollIntoView({behavior:'smooth'});
+    }
+    applyFilters(document.getElementById('catSearch').value);
+  });
+
+  grid.addEventListener('click', e=>{
+    const heart = e.target.closest('.prod-heart');
+    if(!heart) return;
+    const slug = heart.dataset.slug;
+    const nowActive = !heart.classList.contains('active');
+    heart.classList.toggle('active', nowActive);
+    heart.setAttribute('aria-pressed', nowActive);
+    heart.querySelector('svg').setAttribute('fill', nowActive ? 'currentColor' : 'none');
+    if(nowActive) wishlist.add(slug); else wishlist.delete(slug);
+    updateWishlistBadge();
+    if(wishlistFilterActive) applyFilters(document.getElementById('catSearch').value);
+  });
+
+  // ---- quantity steppers on product cards ----
+  grid.addEventListener('click', e=>{
+    const minus = e.target.closest('.qty-minus');
+    const plus = e.target.closest('.qty-plus');
+    if(!minus && !plus) return;
+    const stepper = e.target.closest('.qty-stepper');
+    const valueEl = stepper.querySelector('.qty-value');
+    let val = parseInt(valueEl.textContent, 10);
+    if(plus) val = Math.min(20, val + 1);
+    if(minus) val = Math.max(1, val - 1);
+    valueEl.textContent = val;
+  });
+
+  // ---- add to cart ----
+  const cartBadge = document.getElementById('cartBadge');
+  function updateCartBadge(){
+    let count = 0;
+    cart.forEach(qty => count += qty);
+    cartBadge.textContent = count;
+    cartBadge.classList.toggle('zero', count === 0);
+    cartBadge.classList.remove('bump');
+    void cartBadge.offsetWidth;
+    cartBadge.classList.add('bump');
+  }
+
+  grid.addEventListener('click', e=>{
+    const btn = e.target.closest('.add-cart-btn');
+    if(!btn) return;
+    const slug = btn.dataset.slug;
+    const card = btn.closest('.prod-card');
+    const qty = parseInt(card.querySelector('.qty-value').textContent, 10);
+    cart.set(slug, (cart.get(slug) || 0) + qty);
+    updateCartBadge();
+    renderCart();
+    card.querySelector('.qty-value').textContent = '1';
+    const originalText = btn.textContent;
+    btn.textContent = 'Added \u2713';
+    btn.classList.remove('pulse');
+    void btn.offsetWidth;
+    btn.classList.add('pulse');
+    setTimeout(()=>{ btn.textContent = originalText; }, 1200);
+  });
+
+  // ---- quick order (single item, bypasses cart) ----
+  grid.addEventListener('click', e=>{
+    const link = e.target.closest('.quick-order-link');
+    if(!link) return;
+    e.preventDefault();
+    const slug = link.dataset.slug;
+    const card = link.closest('.prod-card');
+    const qty = parseInt(card.querySelector('.qty-value').textContent, 10);
+    const p = products.find(x => x.slug === slug);
+    const total = p.price * qty;
+    const msg = `Hi! I'd like to order:\n- ${p.name} x${qty} - ${money(total)}\n\nTotal: ${money(total)}`;
+    window.open(waLink(msg), '_blank');
+  });
+
+  // ---- lightbox: click a product photo to see it larger ----
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxName = document.getElementById('lightboxName');
+  const lightboxPrice = document.getElementById('lightboxPrice');
+
+  function openLightbox(slug){
+    const p = products.find(x => x.slug === slug);
+    if(!p) return;
+    lightboxImg.src = p.img;
+    lightboxImg.alt = p.name;
+    lightboxName.textContent = p.name;
+    lightboxPrice.textContent = money(p.price);
+    lightboxOverlay.classList.add('open');
+  }
+  function closeLightbox(){
+    lightboxOverlay.classList.remove('open');
+  }
+  grid.addEventListener('click', e=>{
+    const img = e.target.closest('.prod-media img');
+    if(!img) return;
+    const card = img.closest('.prod-card');
+    openLightbox(card.dataset.slug);
+  });
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightboxOverlay.addEventListener('click', e=>{
+    if(e.target === lightboxOverlay) closeLightbox();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape') closeLightbox();
+  });
+
+  // ---- cart drawer ----
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartEmptyEl = document.getElementById('cartEmpty');
+  const cartFooterEl = document.getElementById('cartFooter');
+  const cartTotalEl = document.getElementById('cartTotal');
+
+  function openCart(){
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('open');
+    cartDrawer.setAttribute('aria-hidden', 'false');
+  }
+  function closeCart(){
+    cartDrawer.classList.remove('open');
+    cartOverlay.classList.remove('open');
+    cartDrawer.setAttribute('aria-hidden', 'true');
+  }
+  document.getElementById('cartToggle').addEventListener('click', openCart);
+  document.getElementById('cartClose').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  function renderCart(){
+    cartItemsEl.innerHTML = '';
+    if(cart.size === 0){
+      cartEmptyEl.style.display = 'block';
+      cartFooterEl.style.display = 'none';
+      return;
+    }
+    cartEmptyEl.style.display = 'none';
+    cartFooterEl.style.display = 'block';
+    let total = 0;
+    cart.forEach((qty, slug)=>{
+      const p = products.find(x => x.slug === slug);
+      const lineTotal = p.price * qty;
+      total += lineTotal;
+      const row = document.createElement('div');
+      row.className = 'cart-row';
+      row.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <div class="cart-row-body">
+          <div class="cart-row-top"><span>${p.name}</span><span>${money(lineTotal)}</span></div>
+          <div class="qty-stepper" data-slug="${p.slug}">
+            <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity">\u2013</button>
+            <span class="qty-value">${qty}</span>
+            <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="cart-row-remove" data-slug="${p.slug}">Remove</button>
+        </div>
+      `;
+      cartItemsEl.appendChild(row);
+    });
+    cartTotalEl.textContent = money(total);
+  }
+
+  cartItemsEl.addEventListener('click', e=>{
+    const minus = e.target.closest('.qty-minus');
+    const plus = e.target.closest('.qty-plus');
+    const remove = e.target.closest('.cart-row-remove');
+    if(remove){
+      cart.delete(remove.dataset.slug);
+      updateCartBadge();
+      renderCart();
+      return;
+    }
+    if(!minus && !plus) return;
+    const stepper = e.target.closest('.qty-stepper');
+    const slug = stepper.dataset.slug;
+    let qty = cart.get(slug) || 1;
+    if(plus) qty = Math.min(20, qty + 1);
+    if(minus) qty = Math.max(1, qty - 1);
+    cart.set(slug, qty);
+    updateCartBadge();
+    renderCart();
+  });
+
+  document.getElementById('cartClear').addEventListener('click', ()=>{
+    cart.clear();
+    updateCartBadge();
+    renderCart();
+  });
+
+  document.getElementById('cartCheckout').addEventListener('click', e=>{
+    e.preventDefault();
+    if(cart.size === 0) return;
+    let total = 0;
+    const lines = ["Hi! I'd like to order:"];
+    cart.forEach((qty, slug)=>{
+      const p = products.find(x => x.slug === slug);
+      const lineTotal = p.price * qty;
+      total += lineTotal;
+      lines.push(`- ${p.name} x${qty} - ${money(lineTotal)}`);
+    });
+    lines.push('');
+    lines.push(`Total: ${money(total)}`);
+    lines.push('');
+    lines.push('(Ordered via the Phool with Love website)');
+    window.open(waLink(lines.join('\n')), '_blank');
+  });
+
+  // ---- mobile menu ----
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', ()=>{
+    const open = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navLinks.classList.remove('open')));
+
+  // ---- header scroll shadow ----
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', ()=>{
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  // ---- subtle hero parallax on scroll ----
+  const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+  const heroBlob = document.getElementById('heroBlob');
+  const heroTexture = document.getElementById('heroTexture');
+  if(!prefersReducedMotion && heroBlob && heroTexture){
+    let ticking = false;
+    window.addEventListener('scroll', ()=>{
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(()=>{
+        const y = window.scrollY;
+        if(y < 900){
+          heroBlob.style.transform = `translateY(${y * 0.18}px)`;
+          heroTexture.style.transform = `translateY(${y * 0.09}px)`;
+        }
+        ticking = false;
+      });
+    });
+  }
+
+  // ---- newsletter signup (actual submit handled by the Firebase module script below) ----
+  window.__submitNewsletterEmail = null; // replaced once the module script loads, if Firebase is connected
+  document.getElementById('nlForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const emailField = document.getElementById('nlEmail');
+    const msg = document.getElementById('nlMsg');
+    const email = emailField.value.trim();
+    if(!email) return;
+    if(typeof window.__submitNewsletterEmail === 'function'){
+      const ok = await window.__submitNewsletterEmail(email);
+      msg.textContent = ok
+        ? 'Thank you \u2014 we\'ll keep you posted on new arrivals.'
+        : 'Thanks! (Couldn\u2019t reach the server, but we\u2019ve noted your interest.)';
+    } else {
+      msg.textContent = 'Thank you \u2014 we\'ll keep you posted on new arrivals.';
+    }
+    emailField.value = '';
+  });
+
+  // ---- scroll reveals ----
+  if('IntersectionObserver' in window){
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('visible'));
+  }
+
+  // ---- stem divider draw-in ----
+  document.querySelectorAll('.stem-divider path').forEach(path=>{
+    let len = 1600;
+    try{ len = path.getTotalLength() || 1600; }catch(err){ /* fallback length */ }
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+  });
+  if('IntersectionObserver' in window){
+    const dividerObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.strokeDashoffset = '0';
+          dividerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.stem-divider path').forEach(path => dividerObserver.observe(path));
+  } else {
+    document.querySelectorAll('.stem-divider path').forEach(path => path.style.strokeDashoffset = '0');
+  }
+
+</script>
+
+<!-- Optional: if this site is connected to Firebase (see firebase-config.js), the
+     shop grid below will be replaced with live data from your admin panel.
+     If not connected yet, everything above already works fine on its own. -->
+<script src="firebase-config.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, getDocs, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const cfg = window.FIREBASE_CONFIG;
+  const configReady = cfg && cfg.apiKey && !cfg.apiKey.includes('PASTE_YOUR');
+  let db = null;
+  if(configReady){
+    try{
+      const app = initializeApp(cfg);
+      db = getFirestore(app);
+      const snap = await getDocs(collection(db, 'products'));
+      if(!snap.empty){
+        const liveProducts = snap.docs.map(d=>{
+          const data = d.data();
+          return {
+            slug: d.id,
+            name: data.name,
+            price: data.price,
+            customizable: !!data.customizable,
+            kind: data.kind,
+            img: data.imageUrl
+          };
+        });
+        if(typeof window.__applyLiveProducts === 'function'){
+          window.__applyLiveProducts(liveProducts);
+        }
+      }
+    }catch(err){
+      console.warn('Could not load live products from Firebase, showing built-in catalog instead.', err);
+    }
+  }
+
+  // ---- newsletter signup: save subscriber emails to Firestore ----
+  window.__submitNewsletterEmail = async function(email){
+    if(!db) return false;
+    try{
+      await addDoc(collection(db, 'subscribers'), { email, createdAt: serverTimestamp() });
+      return true;
+    }catch(err){
+      console.warn('Could not save subscriber email to Firebase.', err);
+      return false;
+    }
+  };
+</script>
+</body>
+</html>

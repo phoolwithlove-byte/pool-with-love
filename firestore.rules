@@ -1,0 +1,29 @@
+// Phool with Love — Firestore Security Rules
+// ============================================
+// Paste this entire file into: Firebase Console > Firestore Database > Rules > Publish
+//
+// What this does:
+// - Anyone visiting your website can READ product data (needed to show the shop).
+// - Only someone LOGGED IN (i.e. you, the admin) can add, edit, or delete products.
+// - There is no public sign-up, so "logged in" only ever means the admin
+//   user(s) you created yourself in Authentication > Users.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Newsletter signups from the public site: anyone can add their email,
+    // but only the admin can read the list back (protects subscribers from scraping).
+    match /subscribers/{subscriberId} {
+      allow create: if request.resource.data.keys().hasOnly(['email', 'createdAt'])
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() > 3
+                    && request.resource.data.email.size() < 200;
+      allow read, update, delete: if request.auth != null;
+    }
+  }
+}

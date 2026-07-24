@@ -1,0 +1,17 @@
+// Phool with Love — Storage Security Rules
+// ===========================================
+// Paste this entire file into: Firebase Console > Storage > Rules > Publish
+//
+// What this does:
+// - Anyone can VIEW product photos (needed so the website can show them).
+// - Only someone LOGGED IN (i.e. you, the admin) can upload or delete photos.
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /products/{fileName} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
